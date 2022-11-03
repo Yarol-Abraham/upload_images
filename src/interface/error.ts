@@ -5,3 +5,8 @@ export interface dataError {
     isOperational: boolean;
     stack: any
 }
+
+export interface fieldError {
+    name: string;
+    message: string;
+}
