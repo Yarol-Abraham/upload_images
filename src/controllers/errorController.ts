@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import { dataError, fieldError } from "../interface/error";
 
 class ErrorController {

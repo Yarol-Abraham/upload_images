@@ -35,7 +35,7 @@ class AuthController {
             const { password, passwordConfirm } = req.body;
             if(password != passwordConfirm) throw new Error("Your password not equals");
             const newUser = await user.create(req.body);
-            this.sendToken(newUser, res, 201);
+            this.sendToken(newUser, res, HttpResponseCode.OK);
         } catch (error: any) 
         {
             errorController.catchError( 
@@ -58,14 +58,14 @@ class AuthController {
             
             if(!bcrypt.compareSync(password, _user.password)) throw new Error("username or password is not valid");
 
-            this.sendToken(_user, res, 200);
+            this.sendToken(_user, res, HttpResponseCode.OK);
 
         }catch(error: any)
         {
             errorController.catchError( 
-                new AppError(`Sorry, Bad Request`, 
+                new AppError(error.message, 
                 HttpResponseCode.INTERNAL_SERVER_ERROR
-            ), error.message, res)
+            ), {}, res)
         }
     }
 
