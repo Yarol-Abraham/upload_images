@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import slugify from 'slugify';
 import { Iupload } from '../interface/upload';
+
 const UploadSchema = new mongoose.Schema<Iupload>({
 
         name:{

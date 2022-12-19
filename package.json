@@ -1,7 +1,7 @@
 {
   "name": "gastos",
   "version": "1.0.0",
-  "description": "ejercicio de de gastos",
+  "description": "subida de imagenes",
   "main": "index.js",
   "scripts": {
     "build": "rimraf ./build && tsc",

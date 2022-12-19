@@ -1,11 +1,16 @@
+// ----- LIBRERIES -----
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import AppError from './utils/appError';
-import UserRouter from './routes/userRouter';
-import errorController from './controllers/errorController';
-import { HttpResponseCode } from './utils/httpResponseCode';
 import path from 'path';
+// ------ ROUTES -----
+import UserRouter from './routes/userRouter';
+import uploadRouter from './routes/uploadRouter';
+// ----- UTILS -----
+import AppError from './utils/appError';
+import { HttpResponseCode } from './utils/httpResponseCode';
+// ----- ERRORS -----
+import errorController from './controllers/errorController';
 
 dotenv.config({ path: 'envconfig.env' });
 const app: express.Application = express();
@@ -18,6 +23,7 @@ app.use( express.urlencoded({ extended: true }) );
 app.use( cors() );
 
 app.use("/api/v1", UserRouter.routes());
+app.use("/api/v1", uploadRouter);
 
 app.use('*', (
     req: express.Request,
