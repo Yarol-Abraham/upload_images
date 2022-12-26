@@ -18,7 +18,7 @@ const UploadSchema = new mongoose.Schema<Iupload>({
 });
 
 UploadSchema.pre('save', function () {
-    this.slug = slugify(this.name, { lower: true });
+    this.name = slugify(this.name, { lower: true });
 });
 
 const upload = mongoose.model("Upload", UploadSchema);
