@@ -7,7 +7,8 @@ class UserRouter extends UserController {
     {
       return [
         Router().post("/signup", (req, res)=> this.signup(req, res)),
-        Router().post("/login", (req, res)=> this.login(req, res))
+        Router().post("/login", (req, res)=> this.login(req, res)),
+        Router().get("/user/:slug", (req, res)=> this.getUser(req, res) )
       ]
     }
 
